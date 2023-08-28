@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 60px;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+<h1>Calculatrice de Pourboire</h1>
+<label>Montant de la facture :</label>
+<input type="number" id="amount">
+<br>
+<label>Pourcentage de pourboire :</label>
+<input type="number" id="tipPercentage">
+<br>
+<button onclick="calculateTip()">Calculer le pourboire</button>
+<p id="tipAmount"></p>
+<p id="totalAmount"></p>
+<script>
+    function calculateTip() {
+        const amount = parseFloat(document.getElementById("amount").value);
+        const tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+        const tipAmount = (amount * tipPercentage) / 100;
+        const totalAmount = amount + tipAmount;
+        document.getElementById("tipAmount").innerText = "Montant du pourboire : €" + tipAmount.toFixed(2);
+        document.getElementById("totalAmount").innerText = "Montant total : €" + totalAmount.toFixed(2);
+    }
+</script>
+</body>
+</html>
